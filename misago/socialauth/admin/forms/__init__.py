@@ -3,3 +3,4 @@ from .facebook import FacebookForm
 from .github import GitHubForm
 from .google import GoogleForm
 from .twitter import TwitterForm
+from .instagram import InstagramForm

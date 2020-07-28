@@ -3,7 +3,7 @@ from social_core.backends.facebook import FacebookOAuth2
 from social_core.backends.github import GithubOAuth2
 from social_core.backends.google import GoogleOAuth2
 from social_core.backends.twitter import TwitterOAuth
-
+from social_core.backends.instagram import InstagramOAuth2
 from .providers import providers
 
 
@@ -14,7 +14,8 @@ class MisagoSocialAuthConfig(AppConfig):
 
     def ready(self):
         # Register default providers
-        from .admin.forms import FacebookForm, GitHubForm, GoogleForm, TwitterForm
+        from .admin.forms import FacebookForm, GitHubForm, GoogleForm
+        from .admin.forms import TwitterForm, InstagramForm
 
         providers.add(
             provider="facebook",
@@ -44,5 +45,12 @@ class MisagoSocialAuthConfig(AppConfig):
             name="Twitter",
             auth_backend=TwitterOAuth,
             admin_form=TwitterForm,
+            admin_template="misago/admin/socialauth/form.html",
+        )
+        providers.add(
+            provider="instagram",
+            name="Instagram",
+            auth_backend=InstagramOAuth2,
+            admin_form=InstagramForm,
             admin_template="misago/admin/socialauth/form.html",
         )
