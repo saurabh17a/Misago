@@ -20,3 +20,10 @@ def disabled_provider(db):
     return SocialAuthProvider.objects.create(
         provider="google-oauth2", is_active=False, order=0
     )
+
+
+@pytest.fixture
+def other_provider2(db):
+    return SocialAuthProvider.objects.create(
+        provider="instagram", is_active=True, order=1
+    )
