@@ -12,7 +12,16 @@ def provider(db):
 
 @pytest.fixture
 def other_provider(db):
-    return SocialAuthProvider.objects.create(provider="github", is_active=True, order=1)
+    return SocialAuthProvider.objects.create(
+        provider="github", is_active=True, order=1
+    )
+
+
+@pytest.fixture
+def other_provider2(db):
+    return SocialAuthProvider.objects.create(
+        provider="instagram", is_active=True, order=1
+    )
 
 
 @pytest.fixture
